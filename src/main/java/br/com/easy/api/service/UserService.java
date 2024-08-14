@@ -7,6 +7,7 @@ import br.com.easy.api.model.User;
 import br.com.easy.api.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Log4j2
@@ -18,9 +19,12 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    private final PasswordEncoder passwordEncoder;
+
     public UserPostResponse save(UserPostRequest request) {
         log.info("Saving user: {}", request.getUsername());
         var userToSave = userMapper.postToUser(request);
+        userToSave.setPassword(passwordEncoder.encode(request.getPassword()));
         var userSaved = userRepository.save(userToSave);
 
         return userMapper.userToPostResponse(userSaved);
