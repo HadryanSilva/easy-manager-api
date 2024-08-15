@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.jwt.*;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Log4j2
@@ -43,7 +44,7 @@ public class JwtService {
 
     public boolean validateToken(String token) {
         try {
-            decoder.decode(token);
+            var tokenDecoded = decoder.decode(token);
             return true;
         } catch (JwtException e) {
             return false;
