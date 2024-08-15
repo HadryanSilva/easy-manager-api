@@ -13,9 +13,6 @@ import org.springframework.test.context.ActiveProfiles;
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 class EasyManagerApiApplicationTests {
 
-	@Autowired
-	private SecurityConfig securityConfig;
-
 	@Test
 	void contextLoads() {
 	}
