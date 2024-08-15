@@ -161,4 +161,11 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/HadryanSilva/easy-manager-api</url>
+		</repository>
+	</distributionManagement>
+
 </project>
