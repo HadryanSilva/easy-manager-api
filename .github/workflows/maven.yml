@@ -29,11 +29,11 @@ jobs:
         cache: maven
     - name: Configure application.properties
       env:
-        app.pub: ${{ secrets.PUBLIC_KEY }}
-        app.key: ${{ secrets.PRIVATE_KEY }}
+        app_pub: ${{ secrets.PUBLIC_KEY }}
+        app_key: ${{ secrets.PRIVATE_KEY }}
       run: |
-        echo "jwt.public.key=$app.pub" > src/test/resources/application.properties
-        echo "jwt.private.key=$app.key" > src/test/resources/application.properties
+        echo "jwt.public.key=$app_pub" > src/test/resources/app.pub
+        echo "jwt.private.key=$app_key" > src/test/resources/app.key
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
