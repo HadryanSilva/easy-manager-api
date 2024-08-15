@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Configure application.properties
-      with:
+      env:
         app.pub: ${{ secrets.PUBLIC_KEY }}
         app.key: ${{ secrets.PRIVATE_KEY }}
       run: |
