@@ -29,8 +29,8 @@ jobs:
         cache: maven
     - name: Configure application.properties
       run: |
-        echo "jwt.public.key=${{ secrets.PUBLIC_KEY }}" > src/main/resources/application.properties
-        echo "jwt.private.key=${{ secrets.PRIVATE_KEY }}" > src/main/resources/application.properties
+        echo "jwt.public.key=${{ secrets.PUBLIC_KEY }}" > src/test/resources/application.properties
+        echo "jwt.private.key=${{ secrets.PRIVATE_KEY }}" > src/test/resources/application.properties
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
