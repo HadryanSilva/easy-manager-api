@@ -24,6 +24,19 @@ jobs:
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
+    - name: Create settings.xml
+      env:
+        WORKSPACE: ${{ github.workspace }}
+      run: |
+        echo "<settings xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\">" > $WORKSPACE/settings.xml
+        echo "  <servers>" >> ~/.m2/settings.xml
+        echo "    <server>" >> ~/.m2/settings.xml
+        echo "      <id>github</id>" >> ~/.m2/settings.xml
+        echo "      <username>${{ github.actor }}</username>" >> ~/.m2/settings.xml
+        echo "      <password>${{ secrets.GITHUB_TOKEN }}</password>" >> ~/.m2/settings.xml
+        echo "    </server>" >> ~/.m2/settings.xml
+        echo "  </servers>" >> ~/.m2/settings.xml
+        echo "</settings>" >> ~/.m2/settings.xml
     - name: Configure application.properties
       env:
         app_pub: ${{ secrets.PUBLIC_KEY }}
