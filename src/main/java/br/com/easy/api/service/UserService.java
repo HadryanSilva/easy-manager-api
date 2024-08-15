@@ -3,6 +3,7 @@ package br.com.easy.api.service;
 import br.com.easy.api.exception.NotFoundException;
 import br.com.easy.api.mapper.UserMapper;
 import br.com.easy.api.mapper.request.UserPostRequest;
+import br.com.easy.api.mapper.request.UserPutRequest;
 import br.com.easy.api.mapper.response.UserGetResponse;
 import br.com.easy.api.mapper.response.UserPostResponse;
 import br.com.easy.api.repository.UserRepository;
@@ -54,6 +55,13 @@ public class UserService {
         var userSaved = userRepository.save(userToSave);
 
         return userMapper.userToPostResponse(userSaved);
+    }
+
+    public void delete(Long id, UserPutRequest request) {
+        log.info("Deleting user: {}", request.getUsername());
+        var userFound = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User not found"));
+        userRepository.delete(userFound);
     }
 
 }

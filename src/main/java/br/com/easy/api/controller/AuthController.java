@@ -1,6 +1,5 @@
 package br.com.easy.api.controller;
 
-import br.com.easy.api.mapper.UserMapper;
 import br.com.easy.api.mapper.request.TokenRequest;
 import br.com.easy.api.mapper.request.UserPostRequest;
 import br.com.easy.api.mapper.response.AuthResponse;

@@ -1,6 +1,8 @@
 package br.com.easy.api.controller;
 
 import br.com.easy.api.mapper.UserMapper;
+import br.com.easy.api.mapper.request.UserPostRequest;
+import br.com.easy.api.mapper.request.UserPutRequest;
 import br.com.easy.api.mapper.response.UserGetResponse;
 import br.com.easy.api.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,12 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserGetResponse> findById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(userService.findById(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id, UserPutRequest request) {
+        userService.delete(id, request);
+        return ResponseEntity.noContent().build();
     }
 
 }

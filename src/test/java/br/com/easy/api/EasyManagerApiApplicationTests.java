@@ -11,11 +11,4 @@ class EasyManagerApiApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void teste() {
-		var encoder = new BCryptPasswordEncoder();
-
-		System.out.println(encoder.encode("admin"));
-	}
-
 }
