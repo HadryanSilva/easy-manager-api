@@ -35,7 +35,7 @@ jobs:
         echo "$app_pub" > src/test/resources/app.pub
         echo "$app_key" > src/test/resources/app.key
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package -Pprod --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml

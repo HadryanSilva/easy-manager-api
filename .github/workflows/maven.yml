@@ -35,7 +35,7 @@ jobs:
         echo "$app_pub" > src/test/resources/app.pub
         echo "$app_key" > src/test/resources/app.key
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package -Ptest --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
