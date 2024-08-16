@@ -64,4 +64,19 @@ public class UserService {
         userRepository.delete(userFound);
     }
 
+    public UserGetResponse update(Long id, UserPutRequest request) {
+        log.info("Updating user: {}", request.getUsername());
+        var userFound = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User not found"));
+        userFound.setId(id);
+        userFound.setUsername(request.getUsername());
+        if (request.getPassword() != null) {
+            userFound.setPassword(passwordEncoder.encode(request.getPassword()));
+        }
+        userFound.setEmail(request.getEmail());
+        var userUpdated = userRepository.save(userFound);
+
+        return userMapper.userToGetResponse(userUpdated);
+    }
+
 }

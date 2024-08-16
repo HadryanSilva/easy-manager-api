@@ -8,7 +8,7 @@ import br.com.easy.api.model.User;
 import org.mapstruct.Mapper;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
     User postToUser(UserPostRequest userPostRequest);
