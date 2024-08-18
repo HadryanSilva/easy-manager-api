@@ -8,6 +8,6 @@ COPY mvnw /app/mvnw
 COPY .mvn /app/.mvn
 
 RUN chmod +x ./mvnw
-RUN ./mvnw clean package
+RUN ./mvnw -Pprod clean package
 
 CMD ["java", "-jar", "/app/target/easy-manager-api-0.0.1-SNAPSHOT.jar"]
