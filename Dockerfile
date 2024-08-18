@@ -6,6 +6,7 @@ COPY src /app/src
 COPY pom.xml /app/pom.xml
 COPY mvnw /app/mvnw
 COPY .mvn /app/.mvn
+COPY /etc/secrets/ /app/src/main/resources/
 
 RUN chmod +x ./mvnw
 RUN ./mvnw clean package
