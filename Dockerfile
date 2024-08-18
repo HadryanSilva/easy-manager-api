@@ -7,10 +7,8 @@ COPY pom.xml /app/pom.xml
 COPY mvnw /app/mvnw
 COPY .mvn /app/.mvn
 
-RUN --mount=type=secret,id=_app.pub,dst=/etc/secrets/app.pub
-RUN cp /etc/secrets/app.pub /app/src/main/resources/app.pub
-RUN --mount=type=secret,id=_app.key,dst=/etc/secrets/app.key
-RUN cp /etc/secrets/app.key /app/src/main/resources/app.key
+RUN --mount=type=secret,id=_app.pub,dst=/etc/secrets/app.pub cp /etc/secrets/app.pub /app/src/main/resources/app.pub
+RUN --mount=type=secret,id=_app.key,dst=/etc/secrets/app.key cp /etc/secrets/app.key /app/src/main/resources/app.key
 
 RUN chmod +x ./mvnw
 RUN ./mvnw clean package
