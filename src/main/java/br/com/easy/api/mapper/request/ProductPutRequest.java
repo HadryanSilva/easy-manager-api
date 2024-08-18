@@ -12,6 +12,8 @@ public class ProductPutRequest {
 
     private Double price;
 
+    private String brand;
+
     private String category;
 
 }

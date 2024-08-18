@@ -12,6 +12,8 @@ public class ProductPostRequest {
 
     private Double price;
 
+    private String brand;
+
     private String category;
 
     private ProductStatus status;
