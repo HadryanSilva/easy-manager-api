@@ -8,6 +8,6 @@ COPY mvnw /app/mvnw
 COPY .mvn /app/.mvn
 
 RUN chmod +x ./mvnw
-RUN ./mvnw -Pprod clean package
+RUN ./mvnw clean package
 
-CMD ["java", "-jar", "/app/target/easy-manager-api-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=prod", "/app/target/easy-manager-api-0.0.1-SNAPSHOT.jar"]
