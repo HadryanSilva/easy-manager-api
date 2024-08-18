@@ -11,6 +11,9 @@ RUN --mount=type=secret,id=_app.pub,dst=/etc/secrets/app.pub cp /etc/secrets/app
 RUN --mount=type=secret,id=_app.key,dst=/etc/secrets/app.key cp /etc/secrets/app.key /app/src/main/resources/app.key
 
 RUN chmod +x ./mvnw
-RUN ./mvnw clean package
+RUN --mount=type=secret,id=_app.pub,dst=/etc/secrets/app.pub \
+    --mount=type=secret,id=_app.key,dst=/etc/secrets/app.key \
+    ./mvnw clean package
+
 
 CMD ["java", "-jar", "-Dspring.profiles.active=prod", "/app/target/easy-manager-api-0.0.1-SNAPSHOT.jar"]
