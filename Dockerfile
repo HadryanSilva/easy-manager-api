@@ -9,6 +9,7 @@ COPY .mvn /app/.mvn
 COPY /etc/secrets/app.pub /app/src/main/resources/app.pub
 COPY /etc/secrets/app.key /app/src/main/resources/app.key
 
+RUN pwd && ls -la
 RUN chmod +x ./mvnw
 RUN ./mvnw clean package
 
