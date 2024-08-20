@@ -1,6 +1,6 @@
 package br.com.easy.api.mapper.request;
 
-import br.com.easy.api.model.enums.ProductStatus;
+import br.com.easy.api.model.enums.StockStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,5 +15,7 @@ public class ProductPutRequest {
     private String brand;
 
     private String category;
+
+    private String stockStatus;
 
 }

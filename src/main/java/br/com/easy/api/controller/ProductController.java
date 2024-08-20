@@ -1,10 +1,10 @@
 package br.com.easy.api.controller;
 
 import br.com.easy.api.mapper.request.ProductPostRequest;
+import br.com.easy.api.mapper.request.ProductPutRequest;
 import br.com.easy.api.mapper.response.ProductResponse;
 import br.com.easy.api.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springdoc.core.converters.PageableOpenAPIConverter;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponse>> findAll(@RequestParam(value = "page", defaultValue = "0") int page,
-                                                         @RequestParam(value = "size", defaultValue = "10") int size) {
+                                                         @RequestParam(value = "size", defaultValue = "5") int size) {
         var products = productService.findAll(PageRequest.of(page, size));
         return ResponseEntity.ok(products);
     }
@@ -41,7 +41,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> update(@PathVariable Long id,
-                                                  @RequestBody ProductPostRequest request) {
+                                                  @RequestBody ProductPutRequest request) {
         var product = productService.update(id, request);
         return ResponseEntity.ok(product);
     }

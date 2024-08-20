@@ -3,6 +3,7 @@ package br.com.easy.api.service;
 import br.com.easy.api.exception.NotFoundException;
 import br.com.easy.api.mapper.ProductMapper;
 import br.com.easy.api.mapper.request.ProductPostRequest;
+import br.com.easy.api.mapper.request.ProductPutRequest;
 import br.com.easy.api.mapper.response.ProductResponse;
 import br.com.easy.api.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -43,7 +44,7 @@ public class ProductService {
         return productMapper.productToResponse(productSaved);
     }
 
-    public ProductResponse update(Long id, ProductPostRequest request) {
+    public ProductResponse update(Long id, ProductPutRequest request) {
         log.info("Updating product: {}", id);
         var product = productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Product not found"));

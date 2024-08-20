@@ -3,15 +3,15 @@ package br.com.easy.api.model.enums;
 import lombok.Getter;
 
 @Getter
-public enum ProductStatus {
+public enum StockStatus {
 
-    IN_STOCK("In stock"),
-    LOW_STOCK("Low stock"),
-    OUT_OF_STOCK("Out of stock");
+    IN_STOCK("Em Estoque"),
+    LOW_STOCK("Estoque Baixo"),
+    OUT_OF_STOCK("Sem Estoque");
 
     private final String description;
 
-    ProductStatus(String description) {
+    StockStatus(String description) {
         this.description = description;
     }
 

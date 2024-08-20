@@ -1,6 +1,6 @@
 package br.com.easy.api.model;
 
-import br.com.easy.api.model.enums.ProductStatus;
+import br.com.easy.api.model.enums.StockStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +25,6 @@ public class Product {
 
     private String category;
 
-    private ProductStatus status;
+    private StockStatus stockStatus;
 
 }

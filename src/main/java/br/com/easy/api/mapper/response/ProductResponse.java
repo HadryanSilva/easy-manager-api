@@ -1,6 +1,6 @@
 package br.com.easy.api.mapper.response;
 
-import br.com.easy.api.model.enums.ProductStatus;
+import br.com.easy.api.model.enums.StockStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +18,6 @@ public class ProductResponse {
 
     private String category;
 
-    private ProductStatus status;
+    private String stockStatus;
 
 }
